@@ -124,24 +124,148 @@ router.route('/consultadeuda')
 														ordenamiento: {campo:'',direccion:''} },
 													servicio: [{modo:"DET",id_eps:"",id_convenio_rec:"14760",id_trx:"43820984",nmro_servicio:{tipo:"RUTC",valor:"165315391"},
 																deuda:[
-																	{nmro_documento:{tipo:"FAC",valor:"14"},
-																	monto:"351611",
-																	moneda:"",
-																	fecha_vencimiento:"20160815",
-																	cod_estado:"100",desc_estado:"Deuda encontrada",
-																	dato_adicional:[
-																		{tipo:"SERVICIO",valor:"LA310324"},
-																		{tipo:"VALOR CUOTA",valor:"351611"},
-																		{tipo:"GASTO COBRANZA",valor:"0"},
-																		{tipo:"INTERESES",valor:"0"},
-																		{tipo:"ESTADO DEUDA",valor:""},
-																		{tipo:"DESCRIPCION",valor:""},
-																		{tipo:"CODIGO PRODUCTO",valor:"4"},
-																		{tipo:"PRODUCTO",valor:"Cuota"},
-																		{tipo:"DIAS ATRASO",valor:"0"},
-																		{tipo:"DOC ID",valor:"736293517"},
-																		{tipo:"CLI NOMBRE",valor:"Rossana"},
-																		{tipo:"COD EMP",valor:"3"},{tipo:"TPD ID",valor:"2"},{tipo:"EMP NOMBRE",valor:"Forum SA"}]}
+																		{
+																			nmro_documento:{tipo:"FAC",valor:"14"},
+																			monto:"351611",
+																			moneda:"",
+																			fecha_vencimiento:"20160815",
+																			cod_estado:"100",desc_estado:"Deuda encontrada",
+																			dato_adicional:[
+																				{tipo:"SERVICIO",valor:"LA310324"},
+																				{tipo:"VALOR CUOTA",valor:"351611"},
+																				{tipo:"GASTO COBRANZA",valor:"0"},
+																				{tipo:"INTERESES",valor:"0"},
+																				{tipo:"ESTADO DEUDA",valor:""},
+																				{tipo:"DESCRIPCION",valor:""},
+																				{tipo:"CODIGO PRODUCTO",valor:"4"},
+																				{tipo:"PRODUCTO",valor:"Cuota"},
+																				{tipo:"DIAS ATRASO",valor:"0"},
+																				{tipo:"DOC ID",valor:"736293517"},
+																				{tipo:"CLI NOMBRE",valor:"Rossana"},
+																				{tipo:"COD EMP",valor:"3"},{tipo:"TPD ID",valor:"2"},{tipo:"EMP NOMBRE",valor:"Forum SA"}]
+																		},
+																		{
+																			"nmro_documento": {
+																			"tipo": "FAC",
+																			"valor": "0"
+																			},
+																			"monto": "116028",
+																			"cod_estado": "100",
+																			"desc_estado": "Deuda encontrada",
+																			"dato_adicional": [
+																			{
+																				"tipo": "SERVICIO",
+																				"valor": "LA310324"
+																			},
+																			{
+																				"tipo": "VALOR CUOTA",
+																				"valor": "116028"
+																			},
+																			{
+																				"tipo": "GASTO COBRANZA",
+																				"valor": "0"
+																			},
+																			{
+																				"tipo": "INTERESES",
+																				"valor": "0"
+																			},
+																			{ "tipo": "ESTADO DEUDA" },
+																			{ "tipo": "DESCRIPCION" },
+																			{
+																				"tipo": "CODIGO PRODUCTO",
+																				"valor": "7"
+																			},
+																			{
+																				"tipo": "PRODUCTO",
+																				"valor": "Hipótesis de cobranza"
+																			},
+																			{
+																				"tipo": "DIAS ATRASO",
+																				"valor": "0"
+																			},
+																			{
+																				"tipo": "DOC ID",
+																				"valor": "736296170"
+																			},
+																			{
+																				"tipo": "CLI NOMBRE",
+																				"valor": "Rossana"
+																			},
+																			{
+																				"tipo": "COD EMP",
+																				"valor": "3"
+																			},
+																			{
+																				"tipo": "TPD ID",
+																				"valor": "2"
+																			},
+																			{
+																				"tipo": "EMP NOMBRE",
+																				"valor": "Forum SA"
+																			}
+																			]
+																		},
+																		{
+                "nmro_documento": {
+                  "tipo": "FAC",
+                  "valor": "03"
+                },
+                "monto": "21097",
+                "cod_estado": "100",
+                "desc_estado": "Deuda encontrada",
+                "dato_adicional": [
+                  {
+                    "tipo": "SERVICIO",
+                    "valor": "LA310324"
+                  },
+                  {
+                    "tipo": "VALOR CUOTA",
+                    "valor": "21097"
+                  },
+                  {
+                    "tipo": "GASTO COBRANZA",
+                    "valor": "0"
+                  },
+                  {
+                    "tipo": "INTERESES",
+                    "valor": "0"
+                  },
+                  { "tipo": "ESTADO DEUDA" },
+                  { "tipo": "DESCRIPCION" },
+                  {
+                    "tipo": "CODIGO PRODUCTO",
+                    "valor": "7"
+                  },
+                  {
+                    "tipo": "PRODUCTO",
+                    "valor": "Hipótesis de cobranza"
+                  },
+                  {
+                    "tipo": "DIAS ATRASO",
+                    "valor": "0"
+                  },
+                  {
+                    "tipo": "DOC ID",
+                    "valor": "736296171"
+                  },
+                  {
+                    "tipo": "CLI NOMBRE",
+                    "valor": "Rossana"
+                  },
+                  {
+                    "tipo": "COD EMP",
+                    "valor": "3"
+                  },
+                  {
+                    "tipo": "TPD ID",
+                    "valor": "2"
+                  },
+                  {
+                    "tipo": "EMP NOMBRE",
+                    "valor": "Forum SA"
+                  }
+                ]
+              }
 																	]
 																}]	 
 												} 
