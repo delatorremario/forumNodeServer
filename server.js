@@ -157,7 +157,7 @@ router.route('/consultadeuda')
  router.route('/login')
     .post(function(req, res){ // CAMBIAR POR POST PARA DEJAR EN PROD.Login(POST http://localhost:8080/api/login) camibar de arg el dato que se debe recibir en XML
     	
-		var urllogin = req.body.urllogin; //"http://200.75.7.242/WSPortalMobileForum/webresources/monitorcall"
+		var urlforum = req.body.urlforum; //"http://200.75.7.242/WSPortalMobileForum/webresources/monitorcall"
 		
 		var options_auth = { user: "wsportalmobile", password: "as123456" };
     	var restclient = new restClient(options_auth);
@@ -171,7 +171,7 @@ router.route('/consultadeuda')
 		    data:data,
 			headers: { "Content-Type": "text/xml" }
 		};
-		restclient.post(urllogin, args, function (data, response) {
+		restclient.post(urlforum, args, function (data, response) {
 		    var responseParse = xmlParser.parseBuffer(data);
 		    res.json({ data: responseParse});
 		});
@@ -182,13 +182,28 @@ router.get('/', function(req, res) {
     res.json({ message: 'Ewin Services Started' });
 });
 //***** CONSULTA COMPROBANTE *****
-router.get('/comprobante')
-.post(function(req, res){
+router.route('/comprobante')
+	.post(function(req, res){
+		var urlforum = req.body.urlforum; //"http://200.75.7.242/WSPortalMobileForum/webresources/monitorcall"
+		var options_auth = { user: "wsportalmobile", password: "as123456" };
+    	var restclient = new restClient(options_auth);
 
-})
-.get(function(){
-	return 'hola mundo'
-});
+		var data = "<message><header>";
+			data +="<msg_type>SPMGETCOMPROBANTE</msg_type><date>2016-11-17T19:00:26-03:00</date>";
+			data +="<action>GetComprobanteMobile</action></header>"
+			data +="<body><parameters count='2'><parameter><name>id_transaccion</name><value>"+ req.body.id_trx_eft + "</value></parameter>"
+			data +="<parameter><name>id_cliente</name><value>"+ req.body.rut+"</value></parameter></parameters></body></message>";
+
+    	var args = {
+		    data:data,
+			headers: { "Content-Type": "text/xml" }
+		};
+		restclient.post(urlforum, args, function (data, response) {
+			var responseParse = xmlParser.parseBuffer(data);
+		    res.json({ data: responseParse});
+		});
+	}
+);
 
 
 // REGISTRANDO ROUTES -------------------------------
