@@ -89,52 +89,66 @@ router.route('/consultadeuda')
 
 		soap.createClient(url, function(err, client) {
 		    //console.dir(client);
-		    client.ConsultaDeuda(data, function(err, result) {
-				//console.log('#### result #####');
-		        //console.log(JSON.stringify(result));
-				
-				//datos proporcionados por forum hasta que mejoren el webservice
-				result = { return: 
-							{ attributes: { type: 'org.example.www.wsconsultaforum.ConsultaDeudaResponse' },
-								encabezado: 
-								{ id_mensaje: 'MTPEC16',
-									version: '3',
-									origen: {tipo:'1',valor:'EFT'},
-									destino: {tipo:'RUT',valor:'780537906'},
-									fecha: '20141211',
-									hora: '141530',
-									id_operacion: '3070',
-									canal: 'INTERNET',
-									cod_estado: '500',
-									paginacion: {nmro_pagina:'1',cantidad_trx:'1',total_registros:'1'},
-									ordenamiento: {campo:'',direccion:''} },
-								servicio: [{modo:"DET",id_eps:"",id_convenio_rec:"14760",id_trx:"43820984",nmro_servicio:{tipo:"RUTC",valor:"165315391"},
-											deuda:[
-												{nmro_documento:{tipo:"FAC",valor:"14"},
-												monto:"351611",
-												moneda:"",
-												fecha_vencimiento:"20160815",
-												cod_estado:"100",desc_estado:"Deuda encontrada",
-												dato_adicional:[
-													{tipo:"SERVICIO",valor:"LA310324"},
-													{tipo:"VALOR CUOTA",valor:"351611"},
-													{tipo:"GASTO COBRANZA",valor:"0"},
-													{tipo:"INTERESES",valor:"0"},
-													{tipo:"ESTADO DEUDA",valor:""},
-													{tipo:"DESCRIPCION",valor:""},
-													{tipo:"CODIGO PRODUCTO",valor:"4"},
-													{tipo:"PRODUCTO",valor:"Cuota"},
-													{tipo:"DIAS ATRASO",valor:"0"},
-													{tipo:"DOC ID",valor:"736293517"},
-													{tipo:"CLI NOMBRE",valor:"Rossana"},
-													{tipo:"COD EMP",valor:"3"},{tipo:"TPD ID",valor:"2"},{tipo:"EMP NOMBRE",valor:"Forum SA"}]}
-												]
-											}]	 
-							} 
+				if(err){				
+					console.dir(err);
+					var errorDesc =  {
+						Fault: {
+						Code: {
+							Value: "error",
+							Subcode: { value: err.code }
+						},
+						Reason: { Text: err }
 						}
-							
-		        res.json({ data: result});
-		    });
+					};
+					res.json({ data: errorDesc});
+				}
+				else{
+					client.ConsultaDeuda(data, function(err, result) {
+									//console.log('#### result #####');
+									//console.log(JSON.stringify(result));
+									
+									//datos proporcionados por forum hasta que mejoren el webservice
+									result = { return: 
+												{ attributes: { type: 'org.example.www.wsconsultaforum.ConsultaDeudaResponse' },
+													encabezado: 
+													{ id_mensaje: 'MTPEC16',
+														version: '3',
+														origen: {tipo:'1',valor:'EFT'},
+														destino: {tipo:'RUT',valor:'780537906'},
+														fecha: '20141211',
+														hora: '141530',
+														id_operacion: '3070',
+														canal: 'INTERNET',
+														cod_estado: '500',
+														paginacion: {nmro_pagina:'1',cantidad_trx:'1',total_registros:'1'},
+														ordenamiento: {campo:'',direccion:''} },
+													servicio: [{modo:"DET",id_eps:"",id_convenio_rec:"14760",id_trx:"43820984",nmro_servicio:{tipo:"RUTC",valor:"165315391"},
+																deuda:[
+																	{nmro_documento:{tipo:"FAC",valor:"14"},
+																	monto:"351611",
+																	moneda:"",
+																	fecha_vencimiento:"20160815",
+																	cod_estado:"100",desc_estado:"Deuda encontrada",
+																	dato_adicional:[
+																		{tipo:"SERVICIO",valor:"LA310324"},
+																		{tipo:"VALOR CUOTA",valor:"351611"},
+																		{tipo:"GASTO COBRANZA",valor:"0"},
+																		{tipo:"INTERESES",valor:"0"},
+																		{tipo:"ESTADO DEUDA",valor:""},
+																		{tipo:"DESCRIPCION",valor:""},
+																		{tipo:"CODIGO PRODUCTO",valor:"4"},
+																		{tipo:"PRODUCTO",valor:"Cuota"},
+																		{tipo:"DIAS ATRASO",valor:"0"},
+																		{tipo:"DOC ID",valor:"736293517"},
+																		{tipo:"CLI NOMBRE",valor:"Rossana"},
+																		{tipo:"COD EMP",valor:"3"},{tipo:"TPD ID",valor:"2"},{tipo:"EMP NOMBRE",valor:"Forum SA"}]}
+																	]
+																}]	 
+												} 
+											}
+									res.json({ data: result});	
+		    		});
+				}	
 		});
     });
 
@@ -167,6 +181,15 @@ router.route('/consultadeuda')
 router.get('/', function(req, res) {
     res.json({ message: 'Ewin Services Started' });
 });
+//***** CONSULTA COMPROBANTE *****
+router.get('/comprobante')
+.post(function(req, res){
+
+})
+.get(function(){
+	return 'hola mundo'
+});
+
 
 // REGISTRANDO ROUTES -------------------------------
 // todas las rutas iran despues del prefijo /api
