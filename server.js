@@ -143,133 +143,12 @@ router.route('/consultadeuda')
 																				{tipo:"DOC ID",valor:"736293517"},
 																				{tipo:"CLI NOMBRE",valor:"Rossana"},
 																				{tipo:"COD EMP",valor:"3"},{tipo:"TPD ID",valor:"2"},{tipo:"EMP NOMBRE",valor:"Forum SA"}]
-																		},
-																		{
-																			"nmro_documento": {
-																			"tipo": "FAC",
-																			"valor": "0"
-																			},
-																			"monto": "116028",
-																			"cod_estado": "100",
-																			"desc_estado": "Deuda encontrada",
-																			"dato_adicional": [
-																			{
-																				"tipo": "SERVICIO",
-																				"valor": "LA310324"
-																			},
-																			{
-																				"tipo": "VALOR CUOTA",
-																				"valor": "116028"
-																			},
-																			{
-																				"tipo": "GASTO COBRANZA",
-																				"valor": "0"
-																			},
-																			{
-																				"tipo": "INTERESES",
-																				"valor": "0"
-																			},
-																			{ "tipo": "ESTADO DEUDA" },
-																			{ "tipo": "DESCRIPCION" },
-																			{
-																				"tipo": "CODIGO PRODUCTO",
-																				"valor": "7"
-																			},
-																			{
-																				"tipo": "PRODUCTO",
-																				"valor": "Hipótesis de cobranza"
-																			},
-																			{
-																				"tipo": "DIAS ATRASO",
-																				"valor": "0"
-																			},
-																			{
-																				"tipo": "DOC ID",
-																				"valor": "736296170"
-																			},
-																			{
-																				"tipo": "CLI NOMBRE",
-																				"valor": "Rossana"
-																			},
-																			{
-																				"tipo": "COD EMP",
-																				"valor": "3"
-																			},
-																			{
-																				"tipo": "TPD ID",
-																				"valor": "2"
-																			},
-																			{
-																				"tipo": "EMP NOMBRE",
-																				"valor": "Forum SA"
-																			}
-																			]
-																		},
-																		{
-                "nmro_documento": {
-                  "tipo": "FAC",
-                  "valor": "03"
-                },
-                "monto": "21097",
-                "cod_estado": "100",
-                "desc_estado": "Deuda encontrada",
-                "dato_adicional": [
-                  {
-                    "tipo": "SERVICIO",
-                    "valor": "LA310324"
-                  },
-                  {
-                    "tipo": "VALOR CUOTA",
-                    "valor": "21097"
-                  },
-                  {
-                    "tipo": "GASTO COBRANZA",
-                    "valor": "0"
-                  },
-                  {
-                    "tipo": "INTERESES",
-                    "valor": "0"
-                  },
-                  { "tipo": "ESTADO DEUDA" },
-                  { "tipo": "DESCRIPCION" },
-                  {
-                    "tipo": "CODIGO PRODUCTO",
-                    "valor": "7"
-                  },
-                  {
-                    "tipo": "PRODUCTO",
-                    "valor": "Hipótesis de cobranza"
-                  },
-                  {
-                    "tipo": "DIAS ATRASO",
-                    "valor": "0"
-                  },
-                  {
-                    "tipo": "DOC ID",
-                    "valor": "736296171"
-                  },
-                  {
-                    "tipo": "CLI NOMBRE",
-                    "valor": "Rossana"
-                  },
-                  {
-                    "tipo": "COD EMP",
-                    "valor": "3"
-                  },
-                  {
-                    "tipo": "TPD ID",
-                    "valor": "2"
-                  },
-                  {
-                    "tipo": "EMP NOMBRE",
-                    "valor": "Forum SA"
-                  }
-                ]
-              }
-																	]
+																		},			]
 																}]	 
 												} 
 											}
+									
+									
 									res.json({ data: result});	
 		    		});
 				}	
@@ -296,6 +175,8 @@ router.route('/consultadeuda')
 			headers: { "Content-Type": "text/xml" }
 		};
 		restclient.post(urlforum, args, function (data, response) {
+			   console.log('data',data);
+          
 		    var responseParse = xmlParser.parseBuffer(data);
 		    res.json({ data: responseParse});
 		});
